@@ -2,8 +2,8 @@
   display: flex;
   gap: 10px;
   padding: 16px 20px;
-  background: white;
-  border-top: 1px solid #e2e8f0;
+  background: var(--bg-input-wrapper);
+  border-top: 1px solid var(--border-color);
   align-items: center;
   position: relative;
 }
@@ -17,9 +17,11 @@
   width: 100%;
   padding: 10px 40px 10px 12px; 
   border-radius: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color); 
+  background: var(--bg-messages); 
+  color: var(--text-main); 
   outline: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 .emoji-btn {
   position: absolute;

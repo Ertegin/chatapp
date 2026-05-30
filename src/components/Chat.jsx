@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useMessages } from "./useMessages";
 import Message from "./Message";
 import MessageInput from "./MessageInput";
 import Loader from "./Loader";
+import { FiSun, FiMoon } from "react-icons/fi";
 import "../styles/Chat.css";
+import { ThemeProvider } from "../context/ThemeContext";
 
 const Chat = () => {
   const { messages, loading } = useMessages();
@@ -16,6 +18,7 @@ const Chat = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages.length]);
  
+  const { theme, toggleTheme } = useContext(ThemeProvider.Context);
 
   const handleUsernameChange = (e) => {
     const value = e.target.value;
@@ -35,6 +38,9 @@ const Chat = () => {
           onChange={handleUsernameChange}
           className="username-input"
         />
+        <button onClick={toggleTheme} className="theme-toggle-btn">
+          {theme === "light" ? <FiMoon /> : <FiSun />}
+        </button>
       </header>
 
       <div className="messages-list">

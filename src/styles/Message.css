@@ -1,8 +1,8 @@
 .message {
-  background: white;
+  background: var(--message-bg);
   padding: 14px 16px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   animation: slideIn 0.3s ease-out;
   transition: box-shadow 0.2s ease;
@@ -34,7 +34,7 @@
 .username {
   font-weight: 600;
   font-size: 14px;
-  color: #4c51bf;
+  color: #667eea;
 }
 
 .time {
@@ -46,14 +46,11 @@
 .message-text {
   font-size: 15px;
   line-height: 1.5;
-  color: #2d3748;
+  color: var(--text-main);
   margin-bottom: 10px;
   word-wrap: break-word;
 }
 
-/* ============================================
-   6. LIKE BUTTON (Beğeni Butonu)
-   ============================================ */
 .like-btn {
   background: transparent;
   border: 1px solid #e2e8f0;
