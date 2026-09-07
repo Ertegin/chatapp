@@ -7,8 +7,8 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import "../styles/Chat.css";
 import { ThemeProvider } from "../context/ThemeContext";
 
-const Chat = () => {
-  const { messages, loading } = useMessages();
+const Chat = ({ roomId = "default-room" }) => {
+  const { messages, loading } = useMessages(roomId);
   const [username, setUsername] = useState(
     () => localStorage.getItem("chat_username") || ""
   );
@@ -52,7 +52,7 @@ const Chat = () => {
         <div ref={messagesEndRef} />
       </div>
 
-      <MessageInput username={username} />
+      <MessageInput username={username} roomId={roomId} />
     </div>
   );
 };

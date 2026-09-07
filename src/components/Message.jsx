@@ -6,7 +6,7 @@ import { useTimeAgo } from "./useTimeAgo";
 import { getUserId } from "./UserId";
 import "../styles/Message.css";
 
-const Message = ({ message }) => {
+const Message = ({ message ,roomId }) => {
   const time=new Date(message.createdAt)
   const timeAgo=useTimeAgo(time)
   const userId = getUserId();
@@ -15,7 +15,8 @@ const Message = ({ message }) => {
 
 
   const handleLike = async () => {
-    const messageRef = ref(db, `pending/${message.id}`);
+    //const messageRef = ref(db, `pending/${message.id}`);
+const messageRef = ref(db, `rooms/${roomId}/messages/${message.id}`);
 
     await update(messageRef, {
       [`likes/${userId}`]: hasLiked ? null : true, 
