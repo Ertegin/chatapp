@@ -15,7 +15,12 @@ const Message = ({ message }) => {
 
 
   const handleLike = async () => {
-    const messageRef = ref(db, `pending/${message.id}`);
+ if (!roomId || !message.id) {
+    console.error("roomId veya messageId eksik!");
+    return;
+  }
+    //const messageRef = ref(db, `pending/${message.id}`);
+const messageRef = ref(db, `rooms/${roomId}/messages/${message.id}`);
 
     await update(messageRef, {
       [`likes/${userId}`]: hasLiked ? null : true, 
