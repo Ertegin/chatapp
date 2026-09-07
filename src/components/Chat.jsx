@@ -47,7 +47,7 @@ const Chat = ({ roomId = "default-room" }) => {
         {messages.length === 0 ? (
           <p className="empty-state">Empty</p>
         ) : (
-          messages.map((msg) => <Message key={msg.id} message={msg} />)
+          messages.map((msg) => <Message key={msg.id} message={msg} roomId={roomId} />)
         )}
         <div ref={messagesEndRef} />
       </div>
