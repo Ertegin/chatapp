@@ -5,7 +5,6 @@ import { db } from "../db/firebase";
 import { getUserId } from "./UserId";
 import EmojiPicker from "emoji-picker-react";
 import "../styles/MessageInput.css";
-import { AuthProvider } from "../context/AuthContext";
 
 const MessageInput = ({ username,roomId  }) => {
   const [text, setText] = useState("");
@@ -13,7 +12,6 @@ const MessageInput = ({ username,roomId  }) => {
   const [showPicker, setShowPicker] = useState(false);
   const pickerRef = useRef(null);
   const buttonRef = useRef(null);
-    const { isGuest  } = useContext(AuthProvider.Context);
   const [justSent, setJustSent] = useState(false);
 
 
@@ -68,22 +66,7 @@ const MessageInput = ({ username,roomId  }) => {
   const handleEmojiClick = (emojiObject) => {
     setText((prev) => prev + emojiObject.emoji);
   };
-  // Eğer kullanıcı misafir ise form yerine bilgilendirme göster
-  if (isGuest) {
-    return (
-      <div className="guest-notice">
-        Misafir olarak izliyorsunuz. Mesaj göndermek için giriş yapın.
-      </div>
-    );
-  }
 
-    if (isGuest) {
-    return (
-      <div className="guest-notice">
-        Misafir olarak izliyorsunuz. Mesaj göndermek için giriş yapın.
-      </div>
-    );
-  }
   return (
     <>
     

@@ -1,9 +1,6 @@
 import Chat from "./components/Chat";
-import { AuthProvider } from "./context/AuthContext";
-import Login from "./components/Login";
-import Loader from "./components/Loader";
-import { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
+
 
 // const params = new URLSearchParams(window.location.search);
 // const roomId = params.get("room") || "default-room";
@@ -14,8 +11,6 @@ const ChatWrapper = () => {
 };
 
 function App() {
-   const { user, loading } = useContext(AuthProvider.Context);
-  if (loading) return <Loader />;
 
   return (
     <BrowserRouter>
